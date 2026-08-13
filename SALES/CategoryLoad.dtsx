@@ -1,0 +1,2621 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/26/2025 4:32:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FATEMEH"
+  DTS:CreatorName="FATEMEH\shahr"
+  DTS:DTSID="{4CD8824D-0DB8-4468-A716-F08FA280E3B4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CategoryLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="258"
+  DTS:VersionGUID="{1A59AF74-8389-4B58-87E6-586A50DEB95A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Category]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9E010470-C5C4-45B9-804B-0743F88C96A2}"
+      DTS:ObjectName="Category">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\BI-SQL\AppleDataSet\category.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_id"
+              DTS:DTSID="{74EB4E2B-9662-4F5F-AE6F-AB130357BFA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_name"
+              DTS:DTSID="{C86E5DC7-D5E2-4434-AA1B-3448C22410BE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FATEMEH.APPLE_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC57DD07-FEF7-4AAC-80E4-4684BC0BEC46}"
+      DTS:ObjectName="FATEMEH.APPLE_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=FATEMEH;Initial Catalog=APPLE_DB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{BC57DD07-FEF7-4AAC-80E4-4684BC0BEC46}FATEMEH.APPLE_DB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.APPLE_DB1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{82AE7C8C-59DF-4242-BED7-B8246C7ECE8A}"
+      DTS:ObjectName="LocalHost.APPLE_DB1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=APPLE_DB;Integrated Security=True;Encrypt=False;Application Name=SSIS-Package-{82AE7C8C-59DF-4242-BED7-B8246C7ECE8A}LocalHost.APPLE_DB1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Product]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EFCDDC78-1ADF-4402-BACD-6E3A74A4DAEE}"
+      DTS:ObjectName="Product">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\BI-SQL\AppleDataSet\products.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Product_ID"
+              DTS:DTSID="{9C1C2C9A-ABCB-483B-880C-CC7A8FE87379}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Product_Name"
+              DTS:DTSID="{961228F2-2931-4FBE-B793-34D9031EF8BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category_ID"
+              DTS:DTSID="{02279ADF-7AB3-4E02-A1AE-1FD2A22C1051}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Launch_Date"
+              DTS:DTSID="{245CA44C-2E30-41CF-983A-9C17758E8F94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Price"
+              DTS:DTSID="{A945A6B9-5098-49BC-BD25-757C44B828FD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sales]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9EFF61CF-03CF-4AB5-A1E6-42134D3CE6BA}"
+      DTS:ObjectName="sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\BI-SQL\AppleDataSet\sales.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sale_id"
+              DTS:DTSID="{1B852FC9-51EB-4120-B5C9-2B639A359189}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sale_date"
+              DTS:DTSID="{47FF5122-6181-49AD-9492-CDFF90A93528}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_id"
+              DTS:DTSID="{2390B179-00A3-47DD-89C0-5C324B9885A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_id"
+              DTS:DTSID="{76A8A0A3-DAA1-4A5A-9FE9-39E86271DA6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="quantity"
+              DTS:DTSID="{62EF7E5E-79F5-4DFB-81FE-75FB369EA1A7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Store]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{806AD2DB-59EC-4B0C-8335-65E73E91886C}"
+      DTS:ObjectName="Store">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\BI-SQL\AppleDataSet\stores.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store_ID"
+              DTS:DTSID="{79658C26-DB68-4B0F-B3BD-F6AA5FD41E88}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store_Name"
+              DTS:DTSID="{F21ECE01-C4F6-4B61-A65A-7CBB1AB1047C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{4384467D-DBD8-4C2F-8EBA-0EC7CE680E72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{81C3D266-29A8-4EFD-B479-0DE9F4C22AEE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Warranty]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F40A08CE-7615-4207-A95D-36B33CE63F46}"
+      DTS:ObjectName="Warranty">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\BI-SQL\AppleDataSet\warranty.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="claim_id"
+              DTS:DTSID="{194D01BC-59D4-4980-A272-BAE76EA408AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="claim_date"
+              DTS:DTSID="{78F556F6-EE04-42B8-88EA-5A1517B0554C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sale_id"
+              DTS:DTSID="{4588591C-8B9D-444F-890E-549AA5273C30}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="repair_status"
+              DTS:DTSID="{322E5422-74D9-4A46-9F72-F02C8CC68F4C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B64307B1-87FE-4157-8D46-F3FA66EEDCD5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE019625-3F0B-4908-8FDE-9627D3E21E34}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State_Category">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add Changes to The Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FF3BF6DC-6F28-4A8A-94E5-0DF3CF4F5AA4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add Changes to The Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Add Changes to The Data\CDC Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+              description="Reads change data from a SQL Server change table making it available for processing by downstream data-flow components. Only changes within the current processing range determined by the CDC Control task are read"
+              name="CDC Source"
+              usesDispositions="true"
+              version="9">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="An SSIS string package variable to store the CDC state of the current CDC state."
+                  expressionType="Notify"
+                  name="StateVariable"
+                  typeConverter="Attunity.SqlServer.CDCSrc.PackageVariablesTypeConverter">User::CDC_State_Category</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the content of the metadata columns and the rows returned. Modes starting with ‘All’ return all changes and modes starting with ‘Net’ return net changes."
+                  expressionType="Notify"
+                  name="CDCProcessingMode"
+                  typeConverter="Attunity.SqlServer.CDCSrc.CdcProcessingMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the CDC capture instance. By default the capture instance name is in the form of &quot;&lt;owner&gt;_&lt;table&gt;&quot;. The actual table that stores the changes is the CDC table named &quot;cdc&quot;.&quot;&lt;capture-instance&gt;_CT&quot;"
+                  expressionType="Notify"
+                  name="CaptureInstance">current_category</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time out."
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="If true, a special output column called ‘__$reprocessing ’ is added. This output column is true for each data row during the initial processing range, or when the previous CDC run&#xA;was stopped without finishing. The default value is false (the __$reprocessing output column is not generated). This special output column allows the SSIS developer to handle consistency errors differently when working on the Initial Processing Range or the previous CDC run was stopped."
+                  expressionType="Notify"
+                  name="ReprocessingIndication">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Attunity.CdcSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Add Changes to The Data\CDC Source.Connections[Connection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.APPLE_DB1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.APPLE_DB1]"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\CDC Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$start_lsn]"
+                      dataType="bytes"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$start_lsn]"
+                      length="10"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$start_lsn]"
+                      name="__$start_lsn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$seqval]"
+                      dataType="bytes"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$seqval]"
+                      length="10"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$seqval]"
+                      name="__$seqval"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$operation]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$operation]"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$operation]"
+                      name="__$operation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$update_mask]"
+                      dataType="bytes"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$update_mask]"
+                      length="128"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$update_mask]"
+                      name="__$update_mask"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_id]"
+                      dataType="wstr"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[category_id]"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_id]"
+                      name="category_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_name]"
+                      dataType="wstr"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[category_name]"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_name]"
+                      name="category_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$command_id]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$command_id]"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$command_id]"
+                      name="__$command_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$start_lsn]"
+                      dataType="bytes"
+                      length="10"
+                      name="__$start_lsn" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$seqval]"
+                      dataType="bytes"
+                      length="10"
+                      name="__$seqval" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$operation]"
+                      dataType="i4"
+                      name="__$operation" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$update_mask]"
+                      dataType="bytes"
+                      length="128"
+                      name="__$update_mask" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_name" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[Output].ExternalColumns[__$command_id]"
+                      dataType="i4"
+                      name="__$command_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput]"
+                  isErrorOut="true"
+                  name="ErrorOutput">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$start_lsn]"
+                      dataType="bytes"
+                      length="10"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$start_lsn]"
+                      name="__$start_lsn" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$seqval]"
+                      dataType="bytes"
+                      length="10"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$seqval]"
+                      name="__$seqval" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$operation]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$operation]"
+                      name="__$operation" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$update_mask]"
+                      dataType="bytes"
+                      length="128"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$update_mask]"
+                      name="__$update_mask" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[category_id]"
+                      name="category_id" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[category_name]"
+                      name="category_name" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$command_id]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[ErrorOutput].Columns[__$command_id]"
+                      name="__$command_id" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add Changes to The Data\CDC Splitter"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+              description="Directs a stream of net change records into different outputs based on the type of the change (Insert, Delete and Update). This allows specific handling for different types of change records."
+              name="CDC Splitter"
+              usesDispositions="true"
+              version="9">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Attunity.CdcSplitterComponent</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input]"
+                  errorOrTruncationOperation="Operation of the changed row is not a valid one"
+                  errorRowDisposition="FailComponent"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[__$start_lsn]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$start_lsn"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$start_lsn]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[__$seqval]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$seqval"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$seqval]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[__$operation]"
+                      cachedDataType="i4"
+                      cachedName="__$operation"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$operation]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[__$update_mask]"
+                      cachedDataType="bytes"
+                      cachedLength="128"
+                      cachedName="__$update_mask"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$update_mask]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[category_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_id]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[__$command_id]"
+                      cachedDataType="i4"
+                      cachedName="__$command_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$command_id]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\CDC Splitter.Outputs[InsertOutput]"
+                  exclusionGroup="1"
+                  name="InsertOutput"
+                  synchronousInputId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Insert."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\CDC Splitter.Outputs[DeleteOutput]"
+                  exclusionGroup="1"
+                  name="DeleteOutput"
+                  synchronousInputId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Delete."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\CDC Splitter.Outputs[UpdateOutput]"
+                  exclusionGroup="1"
+                  name="UpdateOutput"
+                  synchronousInputId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Update."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\CDC Splitter.Outputs[ErrorOutput]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ErrorOutput"
+                  synchronousInputId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Error."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType">3</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column-Operation&amp;ModifiedDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output].Columns[Operation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output].Columns[Operation]"
+                      name="Operation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"INSERT"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"INSERT"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output].Columns[Modified_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output].Columns[Modified_Date]"
+                      name="Modified_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column-Operation&amp;ModifiedDate-2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output].Columns[Operation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output].Columns[Operation]"
+                      name="Operation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"UPDATE"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"UPDATE"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output].Columns[Modified_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output].Columns[Modified_Date]"
+                      name="Modified_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column-Operation&amp;ModifiedDate-3"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output].Columns[Operation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output].Columns[Operation]"
+                      name="Operation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"DELETE"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"DELETE"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output].Columns[Modified_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output].Columns[Modified_Date]"
+                      name="Modified_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add Changes to The Data\Dim Category"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim Category"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dimension_Category]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Add Changes to The Data\Dim Category.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FATEMEH.APPLE_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[FATEMEH.APPLE_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].Columns[Category_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category_ID"
+                      externalMetadataColumnId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[Category_ID]"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Category_ID]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].Columns[Operation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Operation"
+                      externalMetadataColumnId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[Operation]"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Operation]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      externalMetadataColumnId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[category_name]" />
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].Columns[Modified_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Modified_Date"
+                      externalMetadataColumnId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[Modified_Date]"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Modified_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[Category_ID]"
+                      dataType="wstr"
+                      length="50"
+                      name="Category_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[Operation]"
+                      dataType="wstr"
+                      length="50"
+                      name="Operation" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_name" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                      dataType="i4"
+                      name="SurrogateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input].ExternalColumns[Modified_Date]"
+                      dataType="dbTimeStamp"
+                      name="Modified_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\Dim Category.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Dim Category.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Dim Category.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Dim Category.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add Changes to The Data\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[__$start_lsn]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$start_lsn"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$start_lsn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$start_lsn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[__$seqval]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$seqval"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$seqval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$seqval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[__$operation]"
+                      cachedDataType="i4"
+                      cachedName="__$operation"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$operation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$operation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[__$update_mask]"
+                      cachedDataType="bytes"
+                      cachedLength="128"
+                      cachedName="__$update_mask"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$update_mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$update_mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[category_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Category_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[__$command_id]"
+                      cachedDataType="i4"
+                      cachedName="__$command_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$command_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$command_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[Modified_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Modified_Date"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output].Columns[Modified_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Modified_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[Operation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Operation"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output].Columns[Operation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Operation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[category_name]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4]"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[__$start_lsn]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$start_lsn"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$start_lsn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$start_lsn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[__$seqval]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$seqval"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$seqval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$seqval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[__$operation]"
+                      cachedDataType="i4"
+                      cachedName="__$operation"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$operation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$operation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[__$update_mask]"
+                      cachedDataType="bytes"
+                      cachedLength="128"
+                      cachedName="__$update_mask"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$update_mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$update_mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[category_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Category_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[__$command_id]"
+                      cachedDataType="i4"
+                      cachedName="__$command_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$command_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$command_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[Modified_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Modified_Date"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output].Columns[Modified_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Modified_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[Operation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Operation"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output].Columns[Operation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Operation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[category_name]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1]"
+                  hasSideEffects="true"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[__$start_lsn]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$start_lsn"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$start_lsn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$start_lsn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[__$seqval]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$seqval"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$seqval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$seqval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[__$operation]"
+                      cachedDataType="i4"
+                      cachedName="__$operation"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$operation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$operation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[__$update_mask]"
+                      cachedDataType="bytes"
+                      cachedLength="128"
+                      cachedName="__$update_mask"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$update_mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$update_mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[category_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Category_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[__$command_id]"
+                      cachedDataType="i4"
+                      cachedName="__$command_id"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[__$command_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$command_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[Modified_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Modified_Date"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output].Columns[Modified_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Modified_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[Operation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Operation"
+                      lineageId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output].Columns[Operation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Operation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      lineageId="Package\Add Changes to The Data\CDC Source.Outputs[Output].Columns[category_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[category_name]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$start_lsn]"
+                      dataType="bytes"
+                      length="10"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$start_lsn]"
+                      name="__$start_lsn" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$seqval]"
+                      dataType="bytes"
+                      length="10"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$seqval]"
+                      name="__$seqval" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$operation]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$operation]"
+                      name="__$operation" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$update_mask]"
+                      dataType="bytes"
+                      length="128"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$update_mask]"
+                      name="__$update_mask" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Category_ID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Category_ID]"
+                      name="Category_ID" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$command_id]"
+                      dataType="i4"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[__$command_id]"
+                      name="__$command_id" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Modified_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Modified_Date]"
+                      name="Modified_Date" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Operation]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[Operation]"
+                      name="Operation" />
+                    <outputColumn
+                      refId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1].Columns[category_name]"
+                      name="category_name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Add Changes to The Data.Paths[DeleteOutput]"
+              endId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Inputs[Derived Column Input]"
+              name="DeleteOutput"
+              startId="Package\Add Changes to The Data\CDC Splitter.Outputs[DeleteOutput]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[Derived Column Output]"
+              endId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[Derived Column Output1]"
+              endId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 4]"
+              name="Derived Column Output"
+              startId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[Derived Column Output2]"
+              endId="Package\Add Changes to The Data\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[InsertOutput]"
+              endId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate.Inputs[Derived Column Input]"
+              name="InsertOutput"
+              startId="Package\Add Changes to The Data\CDC Splitter.Outputs[InsertOutput]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[Output]"
+              endId="Package\Add Changes to The Data\CDC Splitter.Inputs[Input]"
+              name="Output"
+              startId="Package\Add Changes to The Data\CDC Source.Outputs[Output]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[Union All Output 1]"
+              endId="Package\Add Changes to The Data\Dim Category.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Add Changes to The Data\Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\Add Changes to The Data.Paths[UpdateOutput]"
+              endId="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2.Inputs[Derived Column Input]"
+              name="UpdateOutput"
+              startId="Package\Add Changes to The Data\CDC Splitter.Outputs[UpdateOutput]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CDC Control Task- Get Processing Range"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{82354BF9-C8F6-46F6-8AC2-310100C353A8}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CDC Control Task- Get Processing Range"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="GetProcessingRange"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Category"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Category"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CDC Control Task- Mark Process Range"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{E7412CC5-451D-4DA0-A78A-CA24636E9D28}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CDC Control Task- Mark Process Range"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="MarkProcessedRange"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Category"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Category"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CSV to Category SQL Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D059909B-CE7E-45D1-9756-CCB335A7E511}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CSV to Category SQL Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CSV to Category SQL Staging\Category"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Category"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CSV to Category SQL Staging\Category.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Category]"
+                  connectionManagerRefId="Package.ConnectionManagers[Category]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].Columns[category_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].ExternalColumns[category_id]"
+                      length="50"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].Columns[category_id]"
+                      name="category_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].Columns[category_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].ExternalColumns[category_name]"
+                      length="50"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].Columns[category_name]"
+                      name="category_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].ExternalColumns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].ExternalColumns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CSV to Category SQL Staging\staging_category"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="staging_category"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[staging_category]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CSV to Category SQL Staging\staging_category.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FATEMEH.APPLE_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[FATEMEH.APPLE_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input].Columns[category_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_id"
+                      externalMetadataColumnId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].Columns[category_id]" />
+                    <inputColumn
+                      refId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      externalMetadataColumnId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
+                      lineageId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output].Columns[category_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input].ExternalColumns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CSV to Category SQL Staging\staging_category.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\staging_category.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CSV to Category SQL Staging\staging_category.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CSV to Category SQL Staging\staging_category.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CSV to Category SQL Staging\staging_category.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CSV to Category SQL Staging.Paths[Flat File Source Output]"
+              endId="Package\CSV to Category SQL Staging\staging_category.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\CSV to Category SQL Staging\Category.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delay 10 Seconds"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{07CAE79F-73CD-4491-8AC0-37241E680631}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delay 10 Seconds"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC57DD07-FEF7-4AAC-80E4-4684BC0BEC46}"
+          SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10';&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete Staging_Category"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{69B09F1D-2830-4CEB-9CD3-22AADB975EEE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Staging_Category"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC57DD07-FEF7-4AAC-80E4-4684BC0BEC46}"
+          SQLTask:SqlStatementSource="DELETE FROM dbo.staging_category;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge_Insert_Update_Delete"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0AE8A0D2-A3BA-480C-A9CE-F1420CC56717}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge_Insert_Update_Delete"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC57DD07-FEF7-4AAC-80E4-4684BC0BEC46}"
+          SQLTask:SqlStatementSource=";MERGE dbo.Current_Category_Source AS Target&#xA;USING dbo.staging_category AS Source&#xA;ON Target.Category_Id = Source.Category_Id&#xA;WHEN MATCHED AND (&#xA;        Target.Category_Name&lt;&gt; Source.Category_Name&#xA;    )&#xA;THEN&#xA;    UPDATE SET&#xA;        Target.Category_Name = Source.Category_Name&#xA;WHEN NOT MATCHED BY TARGET&#xA;THEN&#xA;    INSERT (Category_Id, Category_Name)&#xA;         VALUES (Source.Category_Id, Source.Category_Name)&#xA;WHEN NOT MATCHED BY SOURCE&#xA;    THEN DELETE;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5229D612-A721-41A4-9C81-7E635565640C}"
+      DTS:From="Package\CSV to Category SQL Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Merge_Insert_Update_Delete" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4248E3BC-4C22-4C43-94D7-5E4685008518}"
+      DTS:From="Package\Merge_Insert_Update_Delete"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Delay 10 Seconds" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{74036037-9000-44E5-952F-05FD3FED3498}"
+      DTS:From="Package\Delete Staging_Category"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\CSV to Category SQL Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B347EF20-65FF-4CC0-A470-D4626DB7E780}"
+      DTS:From="Package\CDC Control Task- Get Processing Range"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Add Changes to The Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B827ADAD-0C2E-4343-BAE5-DFED2EDF0AE1}"
+      DTS:From="Package\Add Changes to The Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\CDC Control Task- Mark Process Range" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{93DBC6E5-A6E2-4B69-86FC-805004D11316}"
+      DTS:From="Package\Delay 10 Seconds"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\CDC Control Task- Get Processing Range" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="275.5,42"
+          Id="Package\CDC Control Task- Get Processing Range"
+          TopLeft="475.444444444444,366.268518515529" />
+        <NodeLayout
+          Size="268,42"
+          Id="Package\CDC Control Task- Mark Process Range"
+          TopLeft="483.555555555555,513.481481457566" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Add Changes to The Data"
+          TopLeft="509.777777777777,437.26851851553" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Delay 10 Seconds"
+          TopLeft="525,271" />
+        <NodeLayout
+          Size="196.5,42"
+          Id="Package\Delete Staging_Category"
+          TopLeft="510.666666666667,33.4074075568789" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Merge_Insert_Update_Delete"
+          TopLeft="490,201.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\CSV to Category SQL Staging"
+          TopLeft="498.666666666667,136.111111093175" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="609.333333333333,178.111111093175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3888889068255"
+              Start="0,0"
+              End="0,15.8888889068255">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8888889068255" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="609.5,243.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5"
+              Start="0,0"
+              End="0,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="608.791666666667,75.4074075568789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.7037035362956"
+              Start="0,0"
+              End="0,53.2037035362956">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.2037035362956" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="611.486111111111,408.268518515529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.0000000000001"
+              Start="0,0"
+              End="0,21.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="613.666666666666,479.26851851553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.2129629420367"
+              Start="0,0"
+              End="0,26.7129629420367">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7129629420367" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="611.097222222222,313">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.2685185155295"
+              Start="0,0"
+              End="0,45.7685185155295">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7685185155295" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Add Changes to The Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="282.5,42"
+          Id="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-3"
+          TopLeft="271,270" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Add Changes to The Data\Union All"
+          TopLeft="542,358" />
+        <NodeLayout
+          Size="282.5,42"
+          Id="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate-2"
+          TopLeft="520,273" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Add Changes to The Data\Dim Category"
+          TopLeft="524,452" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\Add Changes to The Data\Derived Column-Operation&amp;ModifiedDate"
+          TopLeft="807,267" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Add Changes to The Data\CDC Source"
+          TopLeft="528,62" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Add Changes to The Data\CDC Splitter"
+          TopLeft="508,160" />
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[DeleteOutput]"
+          TopLeft="558,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-145.75,68"
+              Start="0,0"
+              End="-145.75,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2876712328767" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2876712328767"
+                    Point2="0,23.2876712328767"
+                    Point3="-4,23.2876712328767" />
+                  <mssgle:LineSegment
+                    End="-141.75,23.2876712328767" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-141.75,23.2876712328767"
+                    Point2="-145.75,23.2876712328767"
+                    Point3="-145.75,27.2876712328767" />
+                  <mssgle:LineSegment
+                    End="-145.75,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-102.82138671875,28.2876712328767,59.8927734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[UpdateOutput]"
+          TopLeft="604,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.25,71"
+              Start="0,0"
+              End="57.25,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="53.25,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.25,35.5"
+                    Point2="57.25,35.5"
+                    Point3="57.25,39.5" />
+                  <mssgle:LineSegment
+                    End="57.25,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.00533203125,40.5,63.2606640625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[Union All Output 1]"
+          TopLeft="600.25,400">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[Output]"
+          TopLeft="601.25,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[InsertOutput]"
+          TopLeft="650,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="293.5,65"
+              Start="0,0"
+              End="293.5,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2602739726027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2602739726027"
+                    Point2="0,22.2602739726027"
+                    Point3="4,22.2602739726027" />
+                  <mssgle:LineSegment
+                    End="289.5,22.2602739726027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="289.5,22.2602739726027"
+                    Point2="293.5,22.2602739726027"
+                    Point3="293.5,26.2602739726027" />
+                  <mssgle:LineSegment
+                    End="293.5,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="117.77201171875,27.2602739726027,57.9559765625,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[Derived Column Output2]"
+          TopLeft="412.25,312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.5,46"
+              Start="0,0"
+              End="162.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0159151193634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0159151193634"
+                    Point2="0,30.0159151193634"
+                    Point3="4,30.0159151193634" />
+                  <mssgle:LineSegment
+                    End="158.5,30.0159151193634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.5,30.0159151193634"
+                    Point2="162.5,30.0159151193634"
+                    Point3="162.5,34.0159151193634" />
+                  <mssgle:LineSegment
+                    End="162.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[Derived Column Output1]"
+          TopLeft="661.25,315">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-57.75,43"
+              Start="0,0"
+              End="-57.75,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-53.75,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.75,21.5"
+                    Point2="-57.75,21.5"
+                    Point3="-57.75,25.5" />
+                  <mssgle:LineSegment
+                    End="-57.75,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add Changes to The Data.Paths[Derived Column Output]"
+          TopLeft="943.5,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-311.25,49"
+              Start="0,0"
+              End="-311.25,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.973474801061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.973474801061"
+                    Point2="0,31.973474801061"
+                    Point3="-4,31.973474801061" />
+                  <mssgle:LineSegment
+                    End="-307.25,31.973474801061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-307.25,31.973474801061"
+                    Point2="-311.25,31.973474801061"
+                    Point3="-311.25,35.973474801061" />
+                  <mssgle:LineSegment
+                    End="-311.25,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add Changes to The Data\Dim Category">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add Changes to The Data\CDC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CSV to Category SQL Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\CSV to Category SQL Staging\staging_category"
+          TopLeft="480,249" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\CSV to Category SQL Staging\Category"
+          TopLeft="506,47" />
+        <EdgeLayout
+          Id="Package\CSV to Category SQL Staging.Paths[Flat File Source Output]"
+          TopLeft="564.75,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,160"
+              Start="0,0"
+              End="0,152.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CSV to Category SQL Staging\staging_category">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

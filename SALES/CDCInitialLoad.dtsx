@@ -1,0 +1,255 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/8/2025 1:38:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FATEMEH"
+  DTS:CreatorName="FATEMEH\shahr"
+  DTS:DTSID="{4F9E672E-A6DA-49D0-B113-9F8C1727049B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="InitialLoadCDC"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{36E3C682-3514-4FEE-8903-CEC0C6669118}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.APPLE_DB1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{18525AE3-3D9D-4B3E-A19F-5E53C133DA42}"
+      DTS:ObjectName="LocalHost.APPLE_DB1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=APPLE_DB;Integrated Security=True;Encrypt=False;Application Name=SSIS-InitialLoadCDC-{18525AE3-3D9D-4B3E-A19F-5E53C133DA42}LocalHost.APPLE_DB1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7783A7E-4B8D-4FEC-8045-40238C099B6D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C7827AB9-3FD6-4E22-9AF1-7C14D72F8168}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State_Category">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B09D559E-424D-43CB-B024-91A553FA8DD8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State_Product">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{056DDC80-E8A8-479F-8502-87EB1F4A7A2C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State_Sales">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D7D91403-BDEC-4EF0-B468-D3B78C300F53}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State_Store">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{110781AE-C162-4DA2-840D-1EAFC3955E46}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State_Warranty">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Initial_CDC_Category"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{44A3A303-8BAE-49C6-97F0-85826D2FE0CD}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial_CDC_Category"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="MarkCdcStart"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Category"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Category"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Initial_CDC_Product"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{77D9590D-756F-4273-83CA-360DEBC70681}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial_CDC_Product"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="MarkCdcStart"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Product"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Product"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Initial_CDC_Sales"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{f1d3c9a4-1675-4323-9cdb-7ad0f1c146ab}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial_CDC_Sales"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="MarkCdcStart"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Sales"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Sales"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Initial_CDC_Store"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{53F3DB2C-FDB7-4F2D-93C1-20C3F0430088}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial_CDC_Store"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="MarkCdcStart"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Store"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Store"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Initial_CDC_Warranty"
+      DTS:CreationName="Attunity.CdcControlTask"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{4a8a6381-e25e-445c-a886-6cb95ddc35f5}"
+      DTS:ExecutableType="Attunity.CdcControlTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial_CDC_Warranty"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="LocalHost.APPLE_DB1"
+          TaskOperation="MarkCdcStart"
+          OperationParameter=""
+          StateConnection="LocalHost.APPLE_DB1"
+          StateVariable="User::CDC_State_Warranty"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State_Warranty"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Initial_CDC_Category"
+          TopLeft="495.818181818182,70" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Initial_CDC_Product"
+          TopLeft="494,134" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Initial_CDC_Store"
+          TopLeft="495,206" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Initial_CDC_Sales"
+          TopLeft="496.818181818182,260" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Initial_CDC_Warranty"
+          TopLeft="497.818181818182,327" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
